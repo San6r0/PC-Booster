@@ -1,0 +1,42 @@
+@echo off
+title PC-Booster v1.1
+color c
+
+echo =============================
+echo     PC-Boost  - by san6r0 
+echo =============================
+echo Please note that the file
+echo must be started with 
+echo administrator rights.
+echo.
+
+echo [1/5] Delete temporary files...
+del /q /f /s %TEMP%\* >nul 2>&1
+rd /s /q %TEMP% >nul 2>&1
+echo Fertig.
+echo.
+
+echo [2/5] Clear DNS cache...
+ipconfig /flushdns
+echo.
+
+echo [3/5] Start disk optimization...
+defrag C: /O
+echo.
+
+echo [4/5] System file check in progress...
+sfc /scannow
+echo.
+
+
+echo [5/5] Tipp: Check your startup programs:
+echo Press CTRG+SHIFT+ESC and go to "Startup".
+echo.
+
+echo ===========================================
+echo   All optimizations completed!
+echo   Restarting may help to apply the changes.
+echo   to take full effect.
+echo ===========================================
+echo         by https://github.com/San6r0
+pause
